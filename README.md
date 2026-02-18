@@ -1,4 +1,4 @@
-# COMP-324-424-Week-5-In-Class--Student-Handout
+# COMP-324 Week-5-In-Class--Student-Handout
 
 ## The Case of the Flaky UI (group)
 
@@ -15,7 +15,7 @@ Your submission is a **single PDF** containing:
 ## Team info
 
 - Team name: Team A
-- Section/time: 001
+- Section/time: 001 / 4:15-6:45pm
 - Members (names): Celeste Gonzalez
 
 ## How scoring works
@@ -49,8 +49,8 @@ PDF requirements:
 
 Your three bullets:
 
-- Non-goal (out of scope): User accounts/login and payments/checkout.
-- Constraint (time/device/a11y/data): Must support keyboard use and work with static data (no backend/API required)
+- Non-goal (out of scope): User accounts/login and payments/checkout
+- Constraint (time/device/a11y/data): Must support keyboard use of Enter and Tab and work with static data (no API)
 - Commit 1 message (render-only milestone): Render the list view and detail panel from static JSON (no event handlers yet)
 
 Explanation (one sentence):
@@ -63,7 +63,7 @@ Explanation (one sentence):
 
 Answer (event to handle):
 
-- `submit` (on the `<form>`).
+- Handle `submit` on the form (not `click` on the button)
 
 Explanation (one sentence):
 
@@ -75,7 +75,7 @@ Explanation (one sentence):
 
 1) Why is `e.target.dataset.id` missing?
 
-- Because the click may land on a nested element (like an icon or `<span>`), and that nested element doesn’t have the `data-id`.
+- Because the click may land on a nested element (like an icon or `<span>`), and that nested element doesn’t have the `data-id`
 
 2) One-line fix:
 
@@ -90,7 +90,7 @@ Explanation (one sentence):
 ### Challenge 4 (Delegation): The Listener Heist — keyword `DELEGATE`
 
 - Ideal number of listeners: 1
-- Where the listener should live: On the parent container that holds the list/grid of cards.
+- Where the listener should live: On the parent container that holds the list/grid of cards
 
 Explanation (one sentence):
 
@@ -104,7 +104,7 @@ Circle the ones that should be JavaScript state (copy them here):
 
 - Selected item id
 - Current search query
--  Whether “Show favorites” is enabled
+- Whether “Show favorites” is enabled
 
 Explanation (one sentence):
 
@@ -114,11 +114,11 @@ Explanation (one sentence):
 
 ### Challenge 6 (Derived UI): The Missing Render — keyword `RENDER`
 
-- Most likely cause (A/B/C):  A — You forgot to call `render()` after updating state.
+- Most likely cause (A/B/C): A — You forgot to call `render()` after updating state
 
 Fastest evidence you’d check next:
 
-- Pause or log inside `render()` to confirm it runs immediately after the state update.
+- Pause or log inside `render()` to confirm it runs immediately after the state update
 
 Explanation (one sentence):
 

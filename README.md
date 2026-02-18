@@ -14,9 +14,9 @@ Your submission is a **single PDF** containing:
 
 ## Team info
 
-- Team name:
-- Section/time:
-- Members (names):
+- Team name: Team A
+- Section/time: 001
+- Members (names): Celeste Gonzalez
 
 ## How scoring works
 

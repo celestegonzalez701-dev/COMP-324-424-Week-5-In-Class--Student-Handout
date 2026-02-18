@@ -49,13 +49,13 @@ PDF requirements:
 
 Your three bullets:
 
-- Non-goal (out of scope):
-- Constraint (time/device/a11y/data):
-- Commit 1 message (render-only milestone):
+- Non-goal (out of scope): User accounts/login and payments/checkout.
+- Constraint (time/device/a11y/data): Must support keyboard use and work with static data (no backend/API required)
+- Commit 1 message (render-only milestone): Render the list view and detail panel from static JSON (no event handlers yet)
 
 Explanation (one sentence):
 
--
+- A tight MVP scope reduces complexity so the UI can be rendered correctly before layering on interactions.
 
 ---
 
@@ -63,11 +63,11 @@ Explanation (one sentence):
 
 Answer (event to handle):
 
--
+- `submit` (on the `<form>`).
 
 Explanation (one sentence):
 
--
+- Handling `submit` makes Enter-key behavior reliable and `preventDefault()` stops the browser from reloading the page.
 
 ---
 
@@ -75,26 +75,26 @@ Explanation (one sentence):
 
 1) Why is `e.target.dataset.id` missing?
 
--
+- Because the click may land on a nested element (like an icon or `<span>`), and that nested element doesn’t have the `data-id`.
 
 2) One-line fix:
 
--
+- `const itemBtn = e.target.closest("button.card");`
 
 Explanation (one sentence):
 
--
+- `closest()` finds the nearest intended button ancestor so you consistently read the correct `dataset.id`.
 
 ---
 
 ### Challenge 4 (Delegation): The Listener Heist — keyword `DELEGATE`
 
-- Ideal number of listeners:
-- Where the listener should live:
+- Ideal number of listeners: 1
+- Where the listener should live: On the parent container that holds the list/grid of cards.
 
 Explanation (one sentence):
 
--
+- With event delegation, one parent listener handles bubbled clicks and keeps working even after the list is re-rendered.
 
 ---
 
@@ -102,38 +102,38 @@ Explanation (one sentence):
 
 Circle the ones that should be JavaScript state (copy them here):
 
--
--
--
+- Selected item id
+- Current search query
+-  Whether “Show favorites” is enabled
 
 Explanation (one sentence):
 
--
+- These are the changing “source of truth,” while DOM classes/labels should be derived from state during rendering.
 
 ---
 
 ### Challenge 6 (Derived UI): The Missing Render — keyword `RENDER`
 
-- Most likely cause (A/B/C):
+- Most likely cause (A/B/C):  A — You forgot to call `render()` after updating state.
 
 Fastest evidence you’d check next:
 
--
+- Pause or log inside `render()` to confirm it runs immediately after the state update.
 
 Explanation (one sentence):
 
--
+- The DOM won’t reflect new state unless `render()` runs to rebuild the UI from the updated values.
 
 ---
 
 ### Challenge 7 (A11y): The Truthful Toggle — keyword `ARIA-PRESSED`
 
-- Attribute:
-- Bonus: value when label says “Unfavorite”:
+- Attribute: `aria-pressed`
+- Bonus: value when label says “Unfavorite”:  `aria-pressed="true"`
 
 Explanation (one sentence):
 
--
+- Toggle buttons should communicate their on/off state to assistive tech via `aria-pressed`, so “Unfavorite” implies it’s currently on.
 
 ---
 
@@ -141,16 +141,16 @@ Explanation (one sentence):
 
 1) Statement that pauses execution:
 
--
+- `debugger;`
 
 2) Two things to inspect while paused:
 
-- 
-- 
+-  `event.target` (and what `closest(...)` returns)
+- `state` (or the `dataset` values you’re extracting)
 
 Explanation (one sentence):
 
--
+- Pausing lets you inspect real runtime evidence (target, dataset, state) to pinpoint why the UI didn’t update.
 
 \newpage
 
@@ -168,13 +168,13 @@ Fill the blanks using your case keywords.
 
 Your completed recipe:
 
-1)
-2)
-3)
-4)
-5)
-6)
-7)
+1) `SUBMIT`
+2) `CLOSEST`
+3) `DELEGATE`
+4) `STATE`
+5) `RENDER`
+6) `ARIA-PRESSED`
+7) `DEBUGGER` and `STATE`
 
 \newpage
 
